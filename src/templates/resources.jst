@@ -1,0 +1,41 @@
+package  
+{
+	import net.flashpunk.Sfx;
+	import flash.utils.Dictionary;
+	
+	public class Resources 
+	{
+{for gfx in files1}
+		[Embed(source = "data/graphics/${gfx.Name}")] static public const IMG_${baseNameUpperCase(gfx)}:Class;
+{/for}
+{for snd in files2}
+		[Embed(source = "data/sounds/${snd.Name}")] static public const SND_${baseNameUpperCase(snd)}:Class;
+		static public var sfx${baseNameProperCase(snd)}:Sfx = new Sfx(SND_${baseNameUpperCase(snd)});
+{/for}
+{for lvl in files3}
+		[Embed(source = "data/levels/${lvl.Name}", mimeType = "application/octet-stream")] static public const LVL_${baseNameUpperCase(lvl)}:Class;
+{/for}
+		
+		static private var _levelDictionary:Dictionary;
+
+		public function Resources() 
+		{
+			
+		}
+		
+		static public function init():void
+		{
+			_levelDictionary = new Dictionary();
+{for lvl in files3}
+			_levelDictionary["${baseName(lvl)}"] = LVL_${baseNameUpperCase(lvl)};
+{/for}
+		}
+		
+		static public function getLevelFromString(s:String):Class
+		{
+			return _levelDictionary[s];
+		}
+		
+	}
+
+}
