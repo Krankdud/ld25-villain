@@ -5,7 +5,10 @@ package
     
     public class Resources 
     {
+        [Embed(source = "data/graphics/bars.png")] static public const IMG_BARS:Class;
+        [Embed(source = "data/graphics/bat.png")] static public const IMG_BAT:Class;
         [Embed(source = "data/graphics/box.png")] static public const IMG_BOX:Class;
+        [Embed(source = "data/graphics/button.png")] static public const IMG_BUTTON:Class;
         [Embed(source = "data/graphics/efx_abduct.png")] static public const IMG_EFX_ABDUCT:Class;
         [Embed(source = "data/graphics/person.png")] static public const IMG_PERSON:Class;
         [Embed(source = "data/graphics/tileset.png")] static public const IMG_TILESET:Class;

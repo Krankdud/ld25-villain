@@ -12,8 +12,10 @@ package
 			
 			Resources.init();
 			
+			FP.screen.color = 0xd7eb96;
+			
 			FP.screen.scale = 2;
-			FP.world = new GameWorld();
+			FP.world = new MenuWorld();
 		}
 		
 	}

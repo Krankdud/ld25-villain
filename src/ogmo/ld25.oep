@@ -24,7 +24,18 @@
     <Height>480</Height>
   </CameraSize>
   <ExportCameraPosition>false</ExportCameraPosition>
-  <LevelValueDefinitions />
+  <LevelValueDefinitions>
+    <ValueDefinition xsi:type="StringValueDefinition" Name="nextLevel" Default="" MaxChars="-1" MultiLine="false" />
+    <ValueDefinition xsi:type="StringValueDefinition" Name="name" Default="" MaxChars="-1" MultiLine="false" />
+    <ValueDefinition xsi:type="EnumValueDefinition" Name="mission">
+      <Elements>
+        <string>abduct</string>
+        <string>squish</string>
+        <string>goats</string>
+      </Elements>
+    </ValueDefinition>
+    <ValueDefinition xsi:type="IntValueDefinition" Name="goal" Default="0" Min="0" Max="100" ShowSlider="false" />
+  </LevelValueDefinitions>
   <LayerDefinitions>
     <LayerDefinition xsi:type="GridLayerDefinition">
       <Name>mask</Name>
@@ -100,7 +111,7 @@
         <Y>0</Y>
       </Origin>
       <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
-        <RectColor A="255" R="255" G="0" B="0" />
+        <RectColor A="255" R="255" G="255" B="0" />
       </ImageDefinition>
       <ValueDefinitions />
       <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
@@ -115,7 +126,71 @@
         <Y>0</Y>
       </Origin>
       <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
+        <RectColor A="255" R="0" G="0" B="255" />
+      </ImageDefinition>
+      <ValueDefinitions />
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+    <EntityDefinition Name="bars" Limit="-1" ResizableX="false" ResizableY="true" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>16</Width>
+        <Height>16</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
+        <RectColor A="255" R="128" G="0" B="255" />
+      </ImageDefinition>
+      <ValueDefinitions>
+        <ValueDefinition xsi:type="IntValueDefinition" Name="triggerid" Default="0" Min="0" Max="100" ShowSlider="false" />
+      </ValueDefinitions>
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+    <EntityDefinition Name="button" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>16</Width>
+        <Height>16</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
+        <RectColor A="255" R="255" G="128" B="192" />
+      </ImageDefinition>
+      <ValueDefinitions>
+        <ValueDefinition xsi:type="IntValueDefinition" Name="triggerid" Default="0" Min="0" Max="100" ShowSlider="false" />
+      </ValueDefinitions>
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+    <EntityDefinition Name="hurt" Limit="-1" ResizableX="true" ResizableY="true" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>8</Width>
+        <Height>8</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
         <RectColor A="255" R="255" G="0" B="0" />
+      </ImageDefinition>
+      <ValueDefinitions />
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+    <EntityDefinition Name="bat" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>8</Width>
+        <Height>8</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
+        <RectColor A="255" R="0" G="0" B="0" />
       </ImageDefinition>
       <ValueDefinitions />
       <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />

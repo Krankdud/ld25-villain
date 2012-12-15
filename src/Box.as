@@ -23,18 +23,18 @@ package
 		
 		override public function update():void
 		{
-			if (!collideTypes(Global.TYPE_SOLIDS, x, y + _speed + 1) && !held)
+			if (!collideTypes(Global.TYPE_SOLID, x, y + _speed + 1) && !held)
 				_speed += GRAVITY;
 				
 			if (_speed != 0)
 			{
 				
-				if (collideTypes(Global.TYPE_SOLIDS, x, y + _speed))
+				if (collideTypes(Global.TYPE_SOLID, x, y + _speed))
 				{
 					var ys:int = FP.sign(_speed);
 					for (var i:int = 0; i < Math.abs(_speed); i++)
 					{
-						if (collideTypes(Global.TYPE_SOLIDS, x, y + ys))
+						if (collideTypes(Global.TYPE_SOLID, x, y + ys))
 						{
 							_speed = 0;
 							break;

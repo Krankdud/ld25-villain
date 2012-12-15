@@ -1,4 +1,4 @@
-<level width="640" height="480">
+<level width="640" height="480" nextLevel="testlevel2" name="The Test Level!" mission="abduct" goal="3">
   <mask exportMode="Rectangles">
     <rect x="0" y="0" w="208" h="64" />
     <rect x="0" y="64" w="80" h="416" />
@@ -233,6 +233,9 @@
     <tile x="10" y="1" id="19" />
     <tile x="10" y="2" id="19" />
     <tile x="10" y="3" id="28" />
+    <tile x="10" y="14" id="32" />
+    <tile x="10" y="15" id="32" />
+    <tile x="10" y="16" id="32" />
     <tile x="10" y="22" id="0" />
     <tile x="10" y="23" id="10" />
     <tile x="10" y="24" id="19" />
@@ -248,6 +251,7 @@
     <tile x="11" y="14" id="9" />
     <tile x="11" y="15" id="18" />
     <tile x="11" y="16" id="27" />
+    <tile x="11" y="17" id="33" />
     <tile x="11" y="22" id="0" />
     <tile x="11" y="23" id="10" />
     <tile x="11" y="24" id="19" />
@@ -264,6 +268,7 @@
     <tile x="12" y="14" id="10" />
     <tile x="12" y="15" id="19" />
     <tile x="12" y="16" id="28" />
+    <tile x="12" y="17" id="33" />
     <tile x="12" y="22" id="0" />
     <tile x="12" y="23" id="10" />
     <tile x="12" y="24" id="19" />
@@ -278,6 +283,7 @@
     <tile x="13" y="14" id="10" />
     <tile x="13" y="15" id="19" />
     <tile x="13" y="16" id="28" />
+    <tile x="13" y="17" id="33" />
     <tile x="13" y="22" id="0" />
     <tile x="13" y="23" id="10" />
     <tile x="13" y="24" id="19" />
@@ -290,6 +296,7 @@
     <tile x="14" y="14" id="10" />
     <tile x="14" y="15" id="19" />
     <tile x="14" y="16" id="28" />
+    <tile x="14" y="17" id="33" />
     <tile x="14" y="22" id="0" />
     <tile x="14" y="23" id="10" />
     <tile x="14" y="24" id="19" />
@@ -302,6 +309,7 @@
     <tile x="15" y="14" id="10" />
     <tile x="15" y="15" id="19" />
     <tile x="15" y="16" id="28" />
+    <tile x="15" y="17" id="33" />
     <tile x="15" y="22" id="0" />
     <tile x="15" y="23" id="10" />
     <tile x="15" y="24" id="19" />
@@ -315,6 +323,7 @@
     <tile x="16" y="14" id="10" />
     <tile x="16" y="15" id="19" />
     <tile x="16" y="16" id="28" />
+    <tile x="16" y="17" id="33" />
     <tile x="16" y="22" id="0" />
     <tile x="16" y="23" id="11" />
     <tile x="16" y="24" id="20" />
@@ -326,6 +335,7 @@
     <tile x="17" y="14" id="10" />
     <tile x="17" y="15" id="19" />
     <tile x="17" y="16" id="28" />
+    <tile x="17" y="17" id="33" />
     <tile x="17" y="26" id="10" />
     <tile x="17" y="27" id="19" />
     <tile x="17" y="28" id="19" />
@@ -335,6 +345,7 @@
     <tile x="18" y="14" id="31" />
     <tile x="18" y="15" id="19" />
     <tile x="18" y="16" id="28" />
+    <tile x="18" y="17" id="33" />
     <tile x="18" y="26" id="10" />
     <tile x="18" y="27" id="19" />
     <tile x="18" y="28" id="19" />
@@ -345,6 +356,7 @@
     <tile x="19" y="14" id="19" />
     <tile x="19" y="15" id="19" />
     <tile x="19" y="16" id="28" />
+    <tile x="19" y="17" id="33" />
     <tile x="19" y="26" id="10" />
     <tile x="19" y="27" id="19" />
     <tile x="19" y="28" id="19" />
@@ -682,5 +694,13 @@
     <person id="4" x="368" y="184" />
     <person id="5" x="232" y="216" />
     <person id="6" x="448" y="184" />
+    <bars id="7" x="464" y="64" height="128" triggerid="0" />
+    <button id="8" x="400" y="128" triggerid="0" />
+    <hurt id="9" x="168" y="224" width="8" height="48" />
+    <hurt id="10" x="176" y="272" width="144" height="8" />
+    <bat id="11" x="528" y="192" />
+    <bat id="12" x="424" y="344" />
+    <bat id="13" x="216" y="320" />
+    <bat id="14" x="112" y="192" />
   </entities>
 </level>

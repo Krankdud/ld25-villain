@@ -97,7 +97,7 @@ package
 				if (!_holding)
 				{
 					var e:Entity = collideTypes(Global.TYPE_HOLDABLE, x, y + 16);
-					if (e && !e.collideTypes(Global.TYPE_SOLIDS, x, y + 14))
+					if (e && !e.collideTypes(Global.TYPE_SOLID, x, y + 14))
 					{
 						_holding = e as Holdable;
 						_holding.held = true;
@@ -129,7 +129,7 @@ package
 			
 			if (_holding)
 			{
-				if (_holding.collideTypes(Global.TYPE_SOLIDS, _holding.x + _speed.x, _holding.y + _speed.y))
+				if (_holding.collideTypes(Global.TYPE_SOLID, _holding.x + _speed.x, _holding.y + _speed.y))
 				{
 					_holding.held = false;
 					_holding = null;
@@ -138,12 +138,12 @@ package
 			
 			if (_speed.x != 0)
 			{	
-				if (collideTypes(Global.TYPE_SOLIDS, x + _speed.x, y))
+				if (collideTypes(Global.TYPE_SOLID, x + _speed.x, y))
 				{
 					var xs:int = FP.sign(_speed.x);
 					for (var i:int = 0; i < Math.abs(_speed.x); i++)
 					{
-						if (collideTypes(Global.TYPE_SOLIDS, x + xs, y))
+						if (collideTypes(Global.TYPE_SOLID, x + xs, y))
 						{
 							_speed.x = 0;
 							break;
@@ -160,12 +160,12 @@ package
 			
 			if (_speed.y != 0)
 			{
-				if (collideTypes(Global.TYPE_SOLIDS, x, y + _speed.y))
+				if (collideTypes(Global.TYPE_SOLID, x, y + _speed.y))
 				{
 					var ys:int = FP.sign(_speed.y);
 					for (i = 0; i < Math.abs(_speed.y); i++)
 					{
-						if (collideTypes(Global.TYPE_SOLIDS, x, y + ys))
+						if (collideTypes(Global.TYPE_SOLID, x, y + ys))
 						{
 							_speed.y = 0;
 							break;
