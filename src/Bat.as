@@ -50,7 +50,10 @@ package
 			
 			// Get squished
 			if (collideTypes(Global.TYPE_SOLID, x, y))
+			{
+				Global.particleManager.emit(x, y, Global.particleManager.TYPE_SQUISH);
 				FP.world.remove(this);
+			}
 			
 			if (Global.player.x < x)
 				_spritemap.scaleX = -1;

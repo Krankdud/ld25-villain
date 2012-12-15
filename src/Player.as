@@ -136,6 +136,12 @@ package
 				}
 			}
 			
+			if (collide("enemy", x + _speed.x, y + _speed.y))
+			{
+				Global.particleManager.emit(x, y, Global.particleManager.TYPE_PLAYER);
+				FP.world.remove(this);
+			}
+			
 			if (_speed.x != 0)
 			{	
 				if (collideTypes(Global.TYPE_SOLID, x + _speed.x, y))

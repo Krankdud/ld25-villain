@@ -32,7 +32,7 @@ package
 		{
 			if (Input.pressed(Key.X))
 			{
-				FP.world = new GameWorld();
+				FP.world = new IntermissionWorld();
 			}
 		}
 		

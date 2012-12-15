@@ -14,6 +14,8 @@ package
 		private var _timer:int;
 		private var _speed:Number;
 		
+		private var _squished:Boolean;
+		
 		public function Person(x:int, y:int) 
 		{
 			super(x + 8, y + 4);
@@ -29,10 +31,22 @@ package
 			_timer = TIME_MIN + FP.random * TIME_MAX;
 			
 			_speed = 0;
+			_squished = false;
 			
 			graphic = _image;
 			
 			layer = 40;
+		}
+		
+		override public function removed():void
+		{
+			if (Global.goalType == Global.GOAL_ABDUCT && !_squished)
+				Global.goalCurrent++;
+			else if (Global.goalType == Global.GOAL_SQUISH && _squished)
+				Global.goalCurrent++;
+			
+			if (_squished)
+				Global.particleManager.emit(x, y, Global.particleManager.TYPE_SQUISH);
 		}
 		
 		override public function update():void
@@ -80,7 +94,10 @@ package
 					
 				// Get squished
 				if (collideTypes(Global.TYPE_SOLID, x, y))
+				{
+					_squished = true;
 					FP.world.remove(this);
+				}
 			}
 			
 			super.update();

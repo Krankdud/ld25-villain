@@ -6,6 +6,8 @@ package
 	import net.flashpunk.masks.Grid;
 	import net.flashpunk.masks.Hitbox;
 	import net.flashpunk.World;
+	import net.flashpunk.utils.Input;
+	import net.flashpunk.utils.Key;
 
 	public class GameWorld extends World
 	{
@@ -15,13 +17,24 @@ package
 			super();
 			
 			FP.screen.color = 0xd7eb96;
+			Global.goalCurrent = 0;
 			
 			loadLevel(Global.nextLevel);
+			add(Global.particleManager);
 		}
 		
 		override public function update():void
 		{
 			Global.camera.update();
+			
+			if (Input.pressed(Key.R))
+			{
+				Global.nextLevel = Global.currentLevel;
+				FP.world = new IntermissionWorld();
+			}
+			
+			if (Global.goalCurrent >= Global.goalAmount)
+				FP.world = new IntermissionWorld();
 			
 			super.update();
 		}
@@ -33,7 +46,22 @@ package
 			Global.levelWidth = xml.@width;
 			Global.levelHeight = xml.@height;
 			
+			Global.currentLevel = Global.nextLevel;
 			Global.nextLevel = xml.@nextLevel;
+			var s:String = xml.@mission;
+			switch (s)
+			{
+				case "abduct":
+					Global.goalType = Global.GOAL_ABDUCT;
+					break;
+				case "squish":
+					Global.goalType = Global.GOAL_SQUISH;
+					break;
+				case "goats":
+					Global.goalType = Global.GOAL_GOATS;
+					break;
+			}
+			Global.goalAmount = xml.@goal;
 			
 			var grid:Grid = new Grid(xml.@width, xml.@height, 16, 16);
 			grid.usePositions = true;

@@ -16,7 +16,14 @@ package
 		
 		static public var player:Player;
 		
+		static public var currentLevel:String;
 		static public var nextLevel:String;
+		
+		static public var goalType:int;
+		static public var goalAmount:int;
+		static public var goalCurrent:int;
+		
+		static private var _particleManager:ParticleManager;
 		
 		static private var _camera:Camera;
 		
@@ -30,6 +37,13 @@ package
 			if (!_camera)
 				_camera = new Camera();
 			return _camera;
+		}
+		
+		static public function get particleManager():ParticleManager
+		{
+			if (!_particleManager)
+				_particleManager = new ParticleManager();
+			return _particleManager;
 		}
 		
 	}
