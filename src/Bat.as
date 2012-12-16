@@ -52,6 +52,7 @@ package
 			if (collideTypes(Global.TYPE_SOLID, x, y))
 			{
 				Global.particleManager.emit(x, y, Global.particleManager.TYPE_SQUISH);
+				Resources.sfxSquish.play();
 				FP.world.remove(this);
 			}
 			

@@ -11,6 +11,12 @@ package
 
 	public class GameWorld extends World
 	{
+		private const DEATH_TIME:int = 120;
+		private const SUCCESS_TIME:int = 180;
+		
+		private var _deathTimer:int;
+		private var _successTimer:int;
+		private var _hud:Hud;
 		
 		public function GameWorld() 
 		{
@@ -21,25 +27,71 @@ package
 			
 			Global.particleManager = new ParticleManager();
 			
+			Global.levelFinished = false;
+			
 			loadLevel(Global.nextLevel);
 			add(Global.particleManager);
-			add(new Hud());
+			_hud = new Hud();
+			add(_hud);
+			
+			_deathTimer = DEATH_TIME;
+			_successTimer = SUCCESS_TIME;
+			
+			add(new VolumeControl());
 		}
 		
 		override public function update():void
 		{
-			Global.camera.update();
-			
-			if (Input.pressed(Key.R))
+			if (Input.pressed(Key.R) && !Global.levelFinished)
 			{
 				Global.nextLevel = Global.currentLevel;
 				FP.world = new IntermissionWorld();
 			}
 			
-			if (Global.goalCurrent >= Global.goalAmount)
-				FP.world = new IntermissionWorld();
+			if (Input.pressed(Key.P))
+			{
+				Global.paused = !Global.paused;
+			}
 			
-			super.update();
+			if (Global.paused)
+			{
+				_hud.update();
+				_hud.render();
+			}
+			else
+			{
+				Global.camera.update();
+				
+				if (Global.playerDead && !Global.levelFinished)
+				{
+					if (_deathTimer <= 0)
+					{
+						Global.nextLevel = Global.currentLevel;
+						FP.world = new IntermissionWorld();
+					}
+					_deathTimer--;
+				}
+				
+				if (Global.goalCurrent >= Global.goalAmount)
+				{
+					Global.levelFinished = true;
+				}
+				
+				if (Global.levelFinished)
+				{
+					if (_successTimer <= 0)
+					{
+						if (Global.nextLevel == "end")
+							FP.world = new EndWorld();
+						else
+							FP.world = new IntermissionWorld();
+					}
+					else
+						_successTimer--;
+				}
+				
+				super.update();
+			}
 		}
 		
 		public function loadLevel(level:String):void

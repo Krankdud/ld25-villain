@@ -15,6 +15,8 @@ package
 		static public var levelHeight:int;
 		
 		static public var player:Player;
+		static public var playerDead:Boolean = false;
+		static public var levelFinished:Boolean = false;
 		
 		static public var currentLevel:String;
 		static public var nextLevel:String;
@@ -24,6 +26,8 @@ package
 		static public var goalCurrent:int;
 		
 		static public var particleManager:ParticleManager;
+		
+		static public var paused:Boolean = false;
 		
 		static private var _camera:Camera;
 		

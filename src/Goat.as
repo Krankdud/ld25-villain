@@ -44,7 +44,10 @@ package
 				Global.goalCurrent++;
 			
 			if (_squished)
+			{
 				Global.particleManager.emit(x, y, Global.particleManager.TYPE_SQUISH);
+				Resources.sfxSquish.play();
+			}
 		}
 		
 		override public function update():void

@@ -22,6 +22,7 @@ package
 				
 				if (collide("player", x, y))
 				{
+					Resources.sfxPickup.play();
 					FP.world.remove(this);
 				}
 			}

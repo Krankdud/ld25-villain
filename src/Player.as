@@ -28,6 +28,8 @@ package
 			
 			type = "player";
 			
+			Global.playerDead = false;
+			
 			_spritemap = new Spritemap(Resources.IMG_UFO, 16, 11);
 			_spritemap.centerOrigin();
 			_spritemap.y = -1;
@@ -111,6 +113,9 @@ package
 					if (e)
 						(e as Abductable).abduct = true;
 				}
+				
+				if (Resources.sfxAbduct.playing == false)
+					Resources.sfxAbduct.loop();
 			}
 			else
 			{
@@ -122,6 +127,8 @@ package
 					_holding.held = false;
 					_holding = null;
 				}
+				
+				Resources.sfxAbduct.stop();
 			}
 			
 			_speed.x = FP.clamp(_speed.x, -MAX_SPEED, MAX_SPEED);
@@ -138,7 +145,15 @@ package
 			
 			if (collide("enemy", x + _speed.x, y + _speed.y))
 			{
+				if (_holding)
+				{
+					_holding.held = false;
+					_holding = null;
+				}
+				
 				Global.particleManager.emit(x, y, Global.particleManager.TYPE_PLAYER);
+				Global.playerDead = true;
+				Resources.sfxExplode.play();
 				FP.world.remove(this);
 			}
 			

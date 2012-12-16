@@ -61,10 +61,20 @@ package
 			}
 			_t2 = new Text(s, 0, 96, o);
 			_t3 = new Text("Press X to Continue", 0, 192, o);
+			
+			add(new VolumeControl());
 		}
 		
 		override public function update():void 
 		{
+			//Stop sounds from playing
+			Resources.sfxAbduct.stop();
+			Resources.sfxButton.stop();
+			Resources.sfxExplode.stop();
+			Resources.sfxPickup.stop();
+			Resources.sfxShoot.stop();
+			Resources.sfxSquish.stop();
+			
 			if (_timer < 400)
 				_timer++;
 			if (_timer == SHOW_TEXT1)

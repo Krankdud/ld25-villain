@@ -3,20 +3,32 @@ package
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Text;
+	import net.flashpunk.graphics.Graphiclist;
 
 	public class Hud extends Entity
 	{
 		private var _text:Text;
+		private var _pause:Text;
+		private var _success:Text;
 		
 		public function Hud() 
 		{
 			super();
 			
-			var o:Object = new Object;
+			var o:Object = new Object();
 			o.size = 16;
 			o.color = 0xaec741;
 			_text = new Text("Abducted: 100/100", 4, 4, o);
-			graphic = _text;
+			
+			o.width = FP.width;
+			o.align = "center";
+			_pause = new Text("Pause\n\n\n\n\n\n\nPress R to Restart Level", 0, 96, o);
+			_pause.visible = false;
+			
+			_success = new Text("Success!", 0, 96, o);
+			_success.visible = false;
+			
+			graphic = new Graphiclist(_text, _pause, _success);
 			
 			layer = -100;
 		}
@@ -29,6 +41,24 @@ package
 				_text.text = "Abducted: " + Global.goalCurrent.toString() + "/" + Global.goalAmount.toString();
 			if (Global.goalType == Global.GOAL_SQUISH)
 				_text.text = "Squished: " + Global.goalCurrent.toString() + "/" + Global.goalAmount.toString();
+				
+			if (Global.paused)
+			{
+				_pause.visible = true;
+				_pause.x = FP.camera.x;
+				_pause.y = FP.camera.y + 96;
+			}
+			else
+			{
+				_pause.visible = false;
+			}
+			
+			if (Global.levelFinished)
+			{
+				_success.x = FP.camera.x;
+				_success.y = FP.camera.y + 96;
+				_success.visible = true;
+			}
 		}
 		
 	}

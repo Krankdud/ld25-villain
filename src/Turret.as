@@ -159,6 +159,9 @@ package
 					}
 				}
 				
+				if (FP.distance(x, y, Global.player.x, Global.player.y) < 320)
+					Resources.sfxShoot.play();
+				
 				_timer--;
 			}
 			else
