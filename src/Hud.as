@@ -10,6 +10,7 @@ package
 		private var _text:Text;
 		private var _pause:Text;
 		private var _success:Text;
+		private var _impossible:Text;
 		
 		public function Hud() 
 		{
@@ -22,13 +23,16 @@ package
 			
 			o.width = FP.width;
 			o.align = "center";
-			_pause = new Text("Pause\n\n\n\n\n\n\nPress R to Restart Level", 0, 96, o);
+			_pause = new Text("Pause", 0, 96, o);
 			_pause.visible = false;
 			
 			_success = new Text("Success!", 0, 96, o);
 			_success.visible = false;
 			
-			graphic = new Graphiclist(_text, _pause, _success);
+			_impossible = new Text("Press R to Restart", 0, 208, o);
+			_impossible.visible = false;
+			
+			graphic = new Graphiclist(_text, _pause, _success, _impossible);
 			
 			layer = -100;
 		}
@@ -58,6 +62,13 @@ package
 				_success.x = FP.camera.x;
 				_success.y = FP.camera.y + 96;
 				_success.visible = true;
+			}
+			
+			if (Global.levelImpossible)
+			{
+				_impossible.x = FP.camera.x;
+				_impossible.y = FP.camera.y + 208;
+				_impossible.visible = true;
 			}
 		}
 		

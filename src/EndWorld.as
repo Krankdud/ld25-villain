@@ -48,7 +48,10 @@ package
 				_timer++;
 			
 			if (_timer == TIME_TEXT1)
+			{
 				_t1.visible = true;
+				Resources.sfxIntermission.play();
+			}
 			else if (_timer == TIME_TEXT2)
 				_t2.visible = true;
 				

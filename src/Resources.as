@@ -24,6 +24,10 @@ package
         static public var sfxButton:Sfx = new Sfx(SND_BUTTON);
         [Embed(source = "data/sounds/explode.mp3")] static public const SND_EXPLODE:Class;
         static public var sfxExplode:Sfx = new Sfx(SND_EXPLODE);
+        [Embed(source = "data/sounds/intermission.mp3")] static public const SND_INTERMISSION:Class;
+        static public var sfxIntermission:Sfx = new Sfx(SND_INTERMISSION);
+        [Embed(source = "data/sounds/levelfinish.mp3")] static public const SND_LEVELFINISH:Class;
+        static public var sfxLevelfinish:Sfx = new Sfx(SND_LEVELFINISH);
         [Embed(source = "data/sounds/pickup.mp3")] static public const SND_PICKUP:Class;
         static public var sfxPickup:Sfx = new Sfx(SND_PICKUP);
         [Embed(source = "data/sounds/shoot.mp3")] static public const SND_SHOOT:Class;

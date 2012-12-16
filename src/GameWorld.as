@@ -28,6 +28,7 @@ package
 			Global.particleManager = new ParticleManager();
 			
 			Global.levelFinished = false;
+			Global.levelImpossible = false;
 			
 			loadLevel(Global.nextLevel);
 			add(Global.particleManager);
@@ -88,6 +89,21 @@ package
 					}
 					else
 						_successTimer--;
+						
+					if (_successTimer == 179)
+						Resources.sfxLevelfinish.play();
+				}
+				
+				// Impossible checker
+				if (Global.goalType == Global.GOAL_GOATS)
+				{
+					if (classCount(Goat) + Global.goalCurrent < Global.goalAmount)
+						Global.levelImpossible = true;
+				}
+				else
+				{
+					if (classCount(Person) + Global.goalCurrent < Global.goalAmount)
+						Global.levelImpossible = true;
 				}
 				
 				super.update();

@@ -16,7 +16,9 @@ package
 		
 		static public var player:Player;
 		static public var playerDead:Boolean = false;
+		
 		static public var levelFinished:Boolean = false;
+		static public var levelImpossible:Boolean = false;
 		
 		static public var currentLevel:String;
 		static public var nextLevel:String;

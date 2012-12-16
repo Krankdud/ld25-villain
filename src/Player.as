@@ -109,6 +109,9 @@ package
 				// Abductables
 				if (!_holding)
 				{
+					e = collideTypes(Global.TYPE_ABDUCTABLE, x, y + 8);
+					if (e)
+						(e as Abductable).abduct = true;
 					e = collideTypes(Global.TYPE_ABDUCTABLE, x, y + 16);
 					if (e)
 						(e as Abductable).abduct = true;

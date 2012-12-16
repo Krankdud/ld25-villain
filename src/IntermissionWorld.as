@@ -9,8 +9,8 @@ package
 	public class IntermissionWorld extends World
 	{
 		private const SHOW_TEXT1:int = 60;
-		private const SHOW_TEXT2:int = 120;
-		private const SHOW_TEXT3:int = 240;
+		private const SHOW_TEXT2:int = 110;
+		private const SHOW_TEXT3:int = 180;
 		
 		private var _timer:int;
 		private var _t1:Text;
@@ -78,13 +78,22 @@ package
 			if (_timer < 400)
 				_timer++;
 			if (_timer == SHOW_TEXT1)
+			{
 				addGraphic(_t1);
+				Resources.sfxIntermission.play();
+			}
 			if (_timer == SHOW_TEXT2)
+			{
 				addGraphic(_t2);
+				Resources.sfxIntermission.play();
+			}
 			if (_timer == SHOW_TEXT3)
+			{
 				addGraphic(_t3);
+				Resources.sfxIntermission.play();
+			}
 			
-			if (Input.pressed(Key.X) && _timer > 180)
+			if (Input.pressed(Key.X) && _timer > SHOW_TEXT3)
 				FP.world = new GameWorld();
 			
 			super.update();
