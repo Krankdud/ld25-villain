@@ -8,6 +8,8 @@ package
 		private var _target:Triggerable;
 		private var _spritemap:Spritemap;
 		
+		private var _sound:Boolean = false;
+		
 		public function Button(x:int, y:int) 
 		{
 			super(x, y);
@@ -33,11 +35,23 @@ package
 				{
 					_target.triggered = true;
 					_spritemap.play("on");
+					
+					if (_sound == false)
+					{
+						Resources.sfxButton.play();
+						_sound = true;
+					}
 				}
 				else
 				{
 					_target.triggered = false;
 					_spritemap.play("off");
+					
+					if (_sound == true)
+					{
+						Resources.sfxButton.play();
+						_sound = false;
+					}
 				}
 			}
 		}

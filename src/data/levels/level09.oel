@@ -2240,7 +2240,7 @@
     <button id="1" x="48" y="384" triggerid="0" />
     <bars id="2" x="688" y="432" height="80" triggerid="0" />
     <box id="3" x="656" y="904" />
-    <box id="4" x="960" y="248" />
+    <box id="4" x="968" y="248" />
     <person id="5" x="264" y="856" />
     <person id="6" x="280" y="824" />
     <person id="7" x="296" y="824" />
@@ -2284,5 +2284,6 @@
     <turret id="47" x="816" y="968" />
     <turret id="48" x="568" y="968" />
     <turret id="42" x="448" y="576" />
+    <box id="43" x="944" y="248" />
   </entities>
 </level>

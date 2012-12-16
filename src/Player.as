@@ -154,6 +154,7 @@ package
 				Global.particleManager.emit(x, y, Global.particleManager.TYPE_PLAYER);
 				Global.playerDead = true;
 				Resources.sfxExplode.play();
+				Resources.sfxAbduct.stop();
 				FP.world.remove(this);
 			}
 			
