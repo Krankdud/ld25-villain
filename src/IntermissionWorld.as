@@ -38,13 +38,25 @@ package
 			switch (s)
 			{
 				case "abduct":
-					s = "Abduct " + xml.@goal + " people!";
+					s = "Abduct " + xml.@goal;
+					if (xml.@goal == 1)
+						s += " person!";
+					else
+						s += " people!";
 					break;
 				case "squish":
-					s = "Squish " + xml.@goal + " people!";
+					s = "Squish " + xml.@goal;
+					if (xml.@goal == 1)
+						s += " person!";
+					else
+						s += " people!";
 					break;
 				case "goats":
-					s = "Abduct " + xml.@goal + " goats!";
+					s = "Abduct " + xml.@goal;
+					if (xml.@goal == 1)
+						s += " goat!";
+					else
+						s += " goats!";
 					break;
 			}
 			_t2 = new Text(s, 0, 96, o);

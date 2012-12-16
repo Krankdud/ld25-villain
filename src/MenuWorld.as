@@ -15,7 +15,7 @@ package
 			
 			FP.screen.color = 0x204530;
 			
-			Global.nextLevel = "testlevel";
+			Global.nextLevel = "level10";
 			
 			var o:Object = new Object();
 			o.size = 24;

@@ -2,8 +2,8 @@ package
 {
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.FP;
-
-	public class Person extends Abductable
+	
+	public class Goat extends Abductable
 	{
 		private const TIME_MIN:int = 30;
 		private const TIME_MAX:int = 120;
@@ -16,15 +16,15 @@ package
 		
 		private var _squished:Boolean;
 		
-		public function Person(x:int, y:int) 
+		public function Goat(x:int, y:int) 
 		{
-			super(x + 6, y + 4);
+			super(x + 4, y + 4);
 			
 			type = "abductable";
 			
-			setHitbox(4, 4, 2, 2);
+			setHitbox(8, 8, 4, 4);
 			
-			_image = new Image(Resources.IMG_PERSON);
+			_image = new Image(Resources.IMG_GOAT);
 			_image.centerOrigin();
 			_image.scaleX = FP.random < 0.5 ? 1 : -1;
 			
@@ -40,9 +40,7 @@ package
 		
 		override public function removed():void
 		{
-			if (Global.goalType == Global.GOAL_ABDUCT && !_squished)
-				Global.goalCurrent++;
-			else if (Global.goalType == Global.GOAL_SQUISH && _squished)
+			if (Global.goalType == Global.GOAL_GOATS && !_squished)
 				Global.goalCurrent++;
 			
 			if (_squished)

@@ -19,8 +19,11 @@ package
 			FP.screen.color = 0xd7eb96;
 			Global.goalCurrent = 0;
 			
+			Global.particleManager = new ParticleManager();
+			
 			loadLevel(Global.nextLevel);
 			add(Global.particleManager);
+			add(new Hud());
 		}
 		
 		override public function update():void
@@ -103,11 +106,27 @@ package
 				}
 			}
 			
+			if (xml.entities.elements("goat").length() > 0)
+			{
+				for each (o in xml.entities.goat)
+				{
+					add(new Goat(o.@x, o.@y));
+				}
+			}
+			
 			if (xml.entities.elements("bat").length() > 0)
 			{
 				for each (o in xml.entities.bat)
 				{
 					add(new Bat(o.@x, o.@y));
+				}
+			}
+			
+			if (xml.entities.elements("turret").length() > 0)
+			{
+				for each (o in xml.entities.turret)
+				{
+					add(new Turret(o.@x, o.@y));
 				}
 			}
 			
